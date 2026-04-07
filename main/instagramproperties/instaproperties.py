@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 
+
 def extract_insta_desc(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     insta_description = soup.find("meta", {"property": "og:description"})
