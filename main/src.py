@@ -21,17 +21,3 @@ async def main() -> None:
     list_items_result = await dataset_client.list_items()
     print(f'Dataset: {list_items_result}')
 
-run_input = {
-    "directURLs": ["https://www.instagram.com/clemsontigers/"],
-    "resultsType": "posts",
-    "resultsLimit": 200,
-    "onlyPostsNewerThan": None,
-    "search": None,
-    "searchType": "hashtag",
-    "addParentData": False,
-    }
-
-run = client.actor('BSHunter').call(run_input=run_input) 
-
-for item in client.dataset(run['defaultDatasetId']).iterate_items():
-    print(item)
