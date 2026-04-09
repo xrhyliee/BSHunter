@@ -5,6 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+# this initializes the selenium driver with the
+# necessary options for optimized scraping
+
 def setup_driver() -> webdriver.Chrome:
 
     # create chrome options
@@ -30,9 +33,51 @@ def setup_driver() -> webdriver.Chrome:
     print(f"Driver setup complete. Let er rip.")
     return driver
 
-# STOPPED HERE; TODO add functions for navigating searching hashtags, extracting post data, and looping through posts and comments.
+# this function will navigate to the specified hashtag page and scrape through the posts,
+# extracting post urls, captions, and other relevant data.
+# this is essentially the same thing as going to the hashtag page yourself
+# and copy and pasting every post into a notepad, except less tedious
+def search_hashtag(driver: webdriver.Chrome, hashtag: str) -> None:
+    url = f"https://www.instagram.com/explore/tags/{hashtag}/"
 
+    try:
+        driver.get(url)
 
+        # wait for post grid to load
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'article'))
+        )
+
+        print(f"Explore page loaded for #{hashtag}. Starting to scrape posts...")
+
+    except Exception as e:
+        print(f"Uh oh. There was an error navigating to the hashtag page {e}.")
+        print(f"Double-check your spelling and try again next")
+        raise(f"If this issue persists, text/email Rhylie or open an issue on GitHub.")
+
+def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
+
+    # scrolls down the page to load more posts,
+    # waits for new posts to load, and repeats until max scrolls is reached
+    # this simulates the user behavior of scrolling through the hashtag page
+
+    try: 
+        for scroll_count in range(max_scrolls):
+
+            # execute JavaScript (barf) to scroll down the page
+            driver.execute_script("window.scrollTo(0, window.innerHeight);")
+
+            print(f"Scrolled down {scroll_count + 1}/{max_scrolls}. Waiting for new posts to load...")
+
+            # wait for new posts to load
+            time.sleep(wait_time)
+
+        print(f"Finished scrolling.")
+
+    except Exception as e:
+        print(f"Uh oh. There was an error while scrolling {e}")
+        print(f"This could be because of Instagram's anti-scraping measures. (bastards)")
+        print(f"Try running the actor again, and if the issue persists, then text/email Rhylie or open an issue on GitHub.")
 
 
 
