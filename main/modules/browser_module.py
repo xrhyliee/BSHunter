@@ -37,6 +37,7 @@ def setup_driver() -> webdriver.Chrome:
 # extracting post urls, captions, and other relevant data.
 # this is essentially the same thing as going to the hashtag page yourself
 # and copy and pasting every post into a notepad, except less tedious
+
 def search_hashtag(driver: webdriver.Chrome, hashtag: str) -> None:
     url = f"https://www.instagram.com/explore/tags/{hashtag}/"
 
@@ -70,7 +71,7 @@ def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
             print(f"Scrolled down {scroll_count + 1}/{max_scrolls}. Waiting for new posts to load...")
 
             # wait for new posts to load
-            time.sleep(wait_time)
+            time.sleep(3)
 
         print(f"Finished scrolling.")
 
@@ -79,5 +80,28 @@ def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
         print(f"This could be because of Instagram's anti-scraping measures. (bastards)")
         print(f"Try running the actor again, and if the issue persists, then text/email Rhylie or open an issue on GitHub.")
 
+def get_page_html(driver: webdriver.Chrome) -> str:
 
+    try:
+        html = driver.page_source
+        print(f"Successfully extracted page HTML consisting of {len(html)} characters.")4
+        return html
+    
+    except Exception as e:
+        print(f"There was an error extracting the HTML data associated with this page: {e}")
+        print(f"Try running the actor again, and if the issue persists, text/email Rhylie or open an issue on GitHub.")
+        raise
+
+def close_driver(driver: webdriver.Chrome) -> None:
+    # safely closes the driver
+
+    try: 
+        driver.quit()
+        print(f"Driver closed successfully!!")
+
+    except Exception as e:
+        print(f"There was an error closing the driver...")
+        print(f"Something is DEFINITELY wrong, so please either text/email Rhylie or open an issue on GitHub.")
+        raise
+    
 
