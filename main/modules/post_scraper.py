@@ -92,5 +92,51 @@ def extract_author_profile(post_element) -> Dict:
     except Exception as e:
         print(f"There was an error extracting author data: {e}")
         return profile_data
+
+def get_post_url(post_element) -> Optional[str]
+
+    # extract URL for an individual post
+
+    try: 
+        # look for anchor tag that links to the post
+        post_link = post_element.find('a', {'href': lambda x: x and '/p/' in x})
+
+        if post_link and post_link.get('href'):
+            href = post_link.get('href')
+            full_url = f"https://www.instagram.com{href}"
+            print(f"Extracted post URL: {full_url}")
+            return full_url
     
- # stopped here. TODO: add functions for extracting post url and scraping posts from the feed
+    except Exception as e:
+        print(f"There was an error extracting the post URL: {e}")
+        return None
+
+  
+def scrape_feed_posts(html: str) -> List[Dict]:
+    # extracts all posts fromm feed with all metadata
+
+    posts_data = []
+
+    try: 
+        post_elements = extract_posts_from_page(html)
+
+        print(f"\n--- Scraping {len(post_elements)} posts ---\n")
+
+        for idx, post_elem in enumerate(post_elements):
+            print(f"Processing post {idx + 1}/{len(post_elements)}...")
+
+            post_dict = {
+                'post_number': idx + 1,
+                'metadata': extract_post_metadata(post_elem),
+                'author': extract_author_profile(post_elem),
+                'post_url': get_post_url(post_elem)
+            }
+
+            posts_data.append(post_dict)
+
+        print(f"\n Successfully scraped {len(posts_data)} posts!")
+
+    except Exception as e:
+        print(f"There was an error scraping the feed: {e}")
+        print(f"This is probably because of Instagram's anti-scraping API (bastards).")
+        print(f"Try running the actor again, and if the issue persists, text/email Rhylie or open an issue on GitHub.")

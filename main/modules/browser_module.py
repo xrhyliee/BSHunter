@@ -77,8 +77,8 @@ def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
 
     except Exception as e:
         print(f"Uh oh. There was an error while scrolling {e}")
-        print(f"This could be because of Instagram's anti-scraping measures. (bastards)")
-        print(f"Try running the actor again, and if the issue persists, then text/email Rhylie or open an issue on GitHub.")
+        print(f"This could be because of Instagram's anti-scraping API. (bastards)")
+        print(f"Try running the actor again, and if the issue persists, text/email Rhylie or open an issue on GitHub.")
 
 def get_page_html(driver: webdriver.Chrome) -> str:
 
@@ -97,11 +97,9 @@ def close_driver(driver: webdriver.Chrome) -> None:
 
     try: 
         driver.quit()
-        print(f"Driver closed successfully!!")
+        print(f"Driver closed successfully!! Always good when nothing explodes.")
 
     except Exception as e:
         print(f"There was an error closing the driver...")
         print(f"Something is DEFINITELY wrong, so please either text/email Rhylie or open an issue on GitHub.")
         raise
-    
-
