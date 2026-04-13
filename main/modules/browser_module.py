@@ -84,7 +84,7 @@ def get_page_html(driver: webdriver.Chrome) -> str:
 
     try:
         html = driver.page_source
-        print(f"Successfully extracted page HTML consisting of {len(html)} characters.")4
+        print(f"Successfully extracted page HTML consisting of {len(html)} characters.")
         return html
     
     except Exception as e:

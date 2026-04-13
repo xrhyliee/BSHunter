@@ -93,7 +93,7 @@ def extract_author_profile(post_element) -> Dict:
         print(f"There was an error extracting author data: {e}")
         return profile_data
 
-def get_post_url(post_element) -> Optional[str]
+def get_post_url(post_element) -> Optional[str]:
 
     # extract URL for an individual post
 
