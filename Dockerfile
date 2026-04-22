@@ -1,4 +1,4 @@
-FROM apify/actor-python:3.11
+FROM apify/apify/actor-python-selenium:3.11
 
 # Install Python dependencies first
 COPY requirements.txt .
