@@ -14,7 +14,9 @@ def setup_driver() -> webdriver.Chrome:
     chrome_options = ChromeOptions()
 
     # add headless option (no visible browser window)
-    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
 
     # disable images to optimize page loading
     chrome_options.add_argument("--blink-settings=imagesEnabled=false")

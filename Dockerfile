@@ -1,4 +1,4 @@
-FROM apify/apify/actor-python-selenium:3.11
+FROM apify/actor-python-selenium:3.11
 
 # Install Python dependencies first
 COPY requirements.txt .
@@ -12,4 +12,4 @@ COPY . ./
 ENV PYTHONPATH=/usr/src/app:$PYTHONPATH
 
 # Set the entrypoint to the actor main script
-CMD python actor_main.py
+CMD ["python", "actor_main.py"]
