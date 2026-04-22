@@ -1,11 +1,12 @@
 FROM apify/actor-python:3.11
 
-# Copy all files to the image
-COPY . ./
-
-# Install Python dependencies
+# Install Python dependencies first
+COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
+# Copy all files to the image
+COPY . ./
+
 # Set the entrypoint to the actor main script
-CMD python main/actor_main.py
+CMD python actor_main.py
