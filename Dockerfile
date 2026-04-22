@@ -8,5 +8,8 @@ RUN pip install --upgrade pip && \
 # Copy all files to the image
 COPY . ./
 
+# Set Python path to include root directory
+ENV PYTHONPATH=/usr/src/app:$PYTHONPATH
+
 # Set the entrypoint to the actor main script
 CMD python actor_main.py

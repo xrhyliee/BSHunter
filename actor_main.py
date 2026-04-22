@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 
 # CUSTOM MODULE IMPORTS BEGIN HERE
 
-from modules.browser_module import setup_driver, search_hashtag, wait_and_scroll, get_page_html, close_driver
-from modules.post_scraper import scrape_feed_posts
-from modules.post_details import get_post_details
-from modules.data_parser import process_all_posts
+from browser_module import setup_driver, search_hashtag, wait_and_scroll, get_page_html, close_driver
+from post_scraper import scrape_feed_posts
+from post_details import get_post_details
+from data_parser import process_all_posts
 
 load_dotenv()
 
