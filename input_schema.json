@@ -1,0 +1,42 @@
+{
+  "title": "Instagram Hashtag Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "hashtags": {
+      "title": "Hashtags to Scrape",
+      "type": "array",
+      "description": "List of Instagram hashtags (without #) to scrape posts from",
+      "editor": "json",
+      "items": {
+        "type": "string"
+      },
+      "default": ["python"]
+    },
+    "maxPostsPerHashtag": {
+      "title": "Max Posts per Hashtag",
+      "type": "integer",
+      "description": "Maximum number of posts to collect from each hashtag (default: 10)",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 10
+    },
+    "maxCommentsPerPost": {
+      "title": "Max Comments per Post",
+      "type": "integer",
+      "description": "Maximum top comments to extract from each post (default: 5)",
+      "minimum": 0,
+      "maximum": 50,
+      "default": 5
+    },
+    "maxScrolls": {
+      "title": "Max Scrolls",
+      "type": "integer",
+      "description": "Number of times to scroll the feed to load posts (default: 5)",
+      "minimum": 1,
+      "maximum": 20,
+      "default": 5
+    }
+  },
+  "required": ["hashtags"]
+}

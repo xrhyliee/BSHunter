@@ -1,0 +1,18 @@
+{
+  "actorSpecVersion": 1,
+  "name": "instagram-hashtag-scraper",
+  "title": "Instagram Hashtag Scraper",
+  "description": "Scrapes Instagram posts by hashtag, extracting caption, likes, comments, and author profile data",
+  "version": "1.0.0",
+  "meta": {
+    "author": "xrhyliee",
+    "category": "SOCIAL_MEDIA"
+  },
+  "input": "input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "gitRepo": "https://github.com/xrhyliee/BSHunter.git",
+  "minMemMbytes": 512,
+  "maxMemMbytes": 2048,
+  "timeoutSecs": 3600,
+  "buildTag": "latest"
+}
