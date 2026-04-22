@@ -6,7 +6,7 @@
     "hashtags": {
       "title": "Hashtags to Scrape",
       "type": "array",
-      "description": "List of Instagram hashtags (without #) to scrape posts from",
+      "description": "List of Instagram hashtags (without #) to scrape posts from. Make sure you put quotation marks around each input!",
       "editor": "json",
       "items": {
         "type": "string"
