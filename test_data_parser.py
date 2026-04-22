@@ -80,5 +80,5 @@ is_valid = validate_data(normalized)
 print(f"  {'✓' if is_valid else '✗'} Post validation: {is_valid}")
 
 print("\n" + "=" * 60)
-print("✅ ALL TESTS COMPLETED SUCCESSFULLY!")
+print("ALL TESTS COMPLETED SUCCESSFULLY!")
 print("=" * 60)

@@ -1,8 +1,8 @@
 {
   "actorSpecVersion": 1,
-  "name": "instagram-hashtag-scraper",
-  "title": "Instagram Hashtag Scraper",
-  "description": "Scrapes Instagram posts by hashtag, extracting caption, likes, comments, and author profile data",
+  "name": "BS-Hunter",
+  "title": "BS Hunter - The Ennis CI Instagram Scraper",
+  "description": "",
   "version": "1.0.0",
   "meta": {
     "author": "xrhyliee",
