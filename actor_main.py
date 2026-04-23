@@ -52,6 +52,10 @@ async def main() -> None:
         # main loop will go here for processing each hashtag
         try:
             for hashtag in hashtags:
+                hashtag = hashtag.lstrip("#").strip()  # sanitize hashtag input
+                if not hashtag:
+                    Actor.log.warning(f"Skipping empty hashtag entry.")
+                    continue
                 Actor.log.info(f"\n=== Scraping hashtag: #{hashtag} ===\n")
 
                 try: 

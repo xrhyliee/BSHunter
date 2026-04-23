@@ -41,6 +41,7 @@ def setup_driver() -> webdriver.Chrome:
 # and copy and pasting every post into a notepad, except less tedious
 
 def search_hashtag(driver: webdriver.Chrome, hashtag: str) -> None:
+    hashtag = hashtag.lstrip("#").strip()
     url = f"https://www.instagram.com/explore/tags/{hashtag}/"
 
     try:
