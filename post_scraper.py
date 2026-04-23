@@ -135,8 +135,10 @@ def scrape_feed_posts(html: str) -> List[Dict]:
             posts_data.append(post_dict)
 
         print(f"\n Successfully scraped {len(posts_data)} posts!")
+        return posts_data
 
     except Exception as e:
         print(f"There was an error scraping the feed: {e}")
         print(f"This is probably because of Instagram's anti-scraping API (bastards).")
         print(f"Try running the actor again, and if the issue persists, text/email Rhylie or open an issue on GitHub.")
+        return []
