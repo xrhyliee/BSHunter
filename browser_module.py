@@ -57,7 +57,7 @@ def search_hashtag(driver: webdriver.Chrome, hashtag: str) -> None:
         print(f"Uh oh. There was an error navigating to the hashtag page {e}.")
         print(f"Double-check your spelling and try again next")
 
-def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
+def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5, wait_time: float = 3.0) -> None:
 
     # scrolls down the page to load more posts,
     # waits for new posts to load, and repeats until max scrolls is reached
@@ -72,7 +72,7 @@ def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
             print(f"Scrolled down {scroll_count + 1}/{max_scrolls}. Waiting for new posts to load...")
 
             # wait for new posts to load
-            time.sleep(3)
+            time.sleep(wait_time)
 
         print(f"Finished scrolling.")
 

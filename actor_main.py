@@ -57,7 +57,7 @@ async def main() -> None:
                 try: 
                     # navigate to hashtag and scroll to load posts (like you would)
                     search_hashtag(driver, hashtag)
-                    wait_and_scroll(driver, max_scrolls=max_scrolls, wait_time=2.0)
+                    wait_and_scroll(driver, max_scrolls=max_scrolls)
 
                     # phase 3: extract post URLs and metadata from feed
                     html = get_page_html(driver)
