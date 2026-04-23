@@ -56,7 +56,6 @@ def search_hashtag(driver: webdriver.Chrome, hashtag: str) -> None:
     except Exception as e:
         print(f"Uh oh. There was an error navigating to the hashtag page {e}.")
         print(f"Double-check your spelling and try again next")
-        raise(f"If this issue persists, text/email Rhylie or open an issue on GitHub.")
 
 def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
 
@@ -104,4 +103,3 @@ def close_driver(driver: webdriver.Chrome) -> None:
     except Exception as e:
         print(f"There was an error closing the driver...")
         print(f"Something is DEFINITELY wrong, so please either text/email Rhylie or open an issue on GitHub.")
-        raise
