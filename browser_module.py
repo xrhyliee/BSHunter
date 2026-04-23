@@ -91,7 +91,7 @@ def get_page_html(driver: webdriver.Chrome) -> str:
     except Exception as e:
         print(f"There was an error extracting the HTML data associated with this page: {e}")
         print(f"Try running the actor again, and if the issue persists, text/email Rhylie or open an issue on GitHub.")
-        raise
+        
 
 def close_driver(driver: webdriver.Chrome) -> None:
     # safely closes the driver
