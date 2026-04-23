@@ -72,7 +72,7 @@ def wait_and_scroll(driver: webdriver.Chrome, max_scrolls: int = 5) -> None:
             print(f"Scrolled down {scroll_count + 1}/{max_scrolls}. Waiting for new posts to load...")
 
             # wait for new posts to load
-            time.sleep(wait_time)
+            time.sleep(2)
 
         print(f"Finished scrolling.")
 
